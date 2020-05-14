@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { changePage, selectPage} from '../store/sliderReducer';
+import { changePage, selectPage } from '../store/sliderReducer';
 
 function Slider(props) {
-  let children = [1,2,3,4];
   const { page, dispatch } = props;
   const [pageScroll, setPageScroll] = useState(null);
   useEffect(() => {
@@ -13,8 +12,8 @@ function Slider(props) {
     }, 4000))
   }, [page]);
 
-  useEffect( () => {
-    dispatch({type: 'PAGE_COUNT', pageCount: children.length});
+  useEffect(() => {
+    dispatch({ type: 'PAGE_COUNT', pageCount: props.children.length -1 });
   })
 
   return (
@@ -22,7 +21,12 @@ function Slider(props) {
       <button onClick={() => dispatch(changePage(page, +1))}></button>
       <h1>{page}</h1>
       <button onClick={() => dispatch(changePage(page, -1))}></button>
-      <input type='checkbox' checked={page === 4 ? true : false} onChange={(e) => dispatch(selectPage(4))}></input>
+      {props.children}
+      <div className='checkbox'>
+        {props.children.map( (child, index) => {
+          return (<input type='checkbox' key={index} checked={page === index ? true : false} onChange={(e) => dispatch(selectPage(index))}></input>)
+        })}
+      </div>
     </div>
   )
 }
