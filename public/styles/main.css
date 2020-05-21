@@ -1,0 +1,26 @@
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  padding: .5rem;
+  margin: 1rem;
+  position: relative; }
+  .checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0; }
+  .checkbox__checkmark {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color: orangered;
+    cursor: pointer; }
+  .checkbox input:checked ~ .checkbox__checkmark {
+    background-color: #2196F3; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  background-color: black; }

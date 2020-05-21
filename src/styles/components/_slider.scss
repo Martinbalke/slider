@@ -1,0 +1,27 @@
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  padding: .5rem;
+  margin: 1rem;
+  position: relative;
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  &__checkmark {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color: orangered;
+    cursor: pointer;
+  }
+
+  & input:checked ~ &__checkmark {
+  background-color: #2196F3;
+}
+}

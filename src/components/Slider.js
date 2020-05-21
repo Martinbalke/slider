@@ -13,18 +13,22 @@ function Slider(props) {
   }, [page]);
 
   useEffect(() => {
-    dispatch({ type: 'PAGE_COUNT', pageCount: props.children.length -1 });
+    dispatch({ type: 'PAGE_COUNT', pageCount: props.children.length - 1 });
   })
 
   return (
     <div>
       <button onClick={() => dispatch(changePage(page, +1))}></button>
-      <h1>{page}</h1>
       <button onClick={() => dispatch(changePage(page, -1))}></button>
-      {props.children}
+      {props.children.map((child, index) => <div className={page === index ? 'active' : 'inactive'}>{child}</div>)}
       <div className='checkbox'>
-        {props.children.map( (child, index) => {
-          return (<input type='checkbox' key={index} checked={page === index ? true : false} onChange={(e) => dispatch(selectPage(index))}></input>)
+        {props.children.map((child, index) => {
+          return (
+            <label for={index} className='checkbox'>
+              <input id={index} type='checkbox' key={index} checked={page === index ? true : false} onChange={(e) => dispatch(selectPage(index))} />
+              <span className='checkbox__checkmark' />
+            </label>
+          )
         })}
       </div>
     </div>
