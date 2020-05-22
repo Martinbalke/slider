@@ -4,7 +4,7 @@ import testImage from '../images/test.jpg'
 const Images = () => {
   return (
     <div>
-      <img src={testImage} alt='' style={{width: '200px'}}/>
+      <img src={testImage} alt=''/>
     </div>);
 }
 

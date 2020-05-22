@@ -17,14 +17,17 @@ function Slider(props) {
   })
 
   return (
-    <div>
-      <button onClick={() => dispatch(changePage(page, +1))}></button>
-      <button onClick={() => dispatch(changePage(page, -1))}></button>
-      {props.children.map((child, index) => <div className={page === index ? 'active' : 'inactive'}>{child}</div>)}
+    <div className='slider'>
+      <button className=' slider__button slider__button-right' onClick={() => dispatch(changePage(page, -1))}>&#8249;</button>
+      <button className=' slider__button slider__button-left' onClick={() => dispatch(changePage(page, +1))}>&#8250;</button>
+      <div className='content'>
+        {props.children.map((child, index) => <div className={page === index ? 'active content__child' : 'inactive content__child'}>{child}</div>)}
+
+      </div>
       <div className='checkbox'>
         {props.children.map((child, index) => {
           return (
-            <label for={index} className='checkbox'>
+            <label for={index} className='checkbox__label'>
               <input id={index} type='checkbox' key={index} checked={page === index ? true : false} onChange={(e) => dispatch(selectPage(index))} />
               <span className='checkbox__checkmark' />
             </label>
