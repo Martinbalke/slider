@@ -5,9 +5,14 @@ import { Provider } from 'react-redux';
 import store from '../store';
 
 
-
+/**
+ * App is the main JSX wrapper component for this React app
+ * @author [Martin Balke](https://github.com/Martinbalke)
+ * @returns {JSX} 
+ */
 function App() {
   return (
+    //React redux store
     <Provider store={store}>
       <div className="App">
         <Slider>
