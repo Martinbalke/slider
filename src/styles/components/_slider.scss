@@ -1,10 +1,14 @@
 .slider {
   width: 100%;
+  flex-wrap: wrap;
   height: 95vh;
-  position: relative;
+  display: flex;
+  margin: 1rem;
+
 
   &__button {
     display: inline-block;
+    position: relative;
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -14,30 +18,32 @@
     color: white;
     font-size: 9rem;
     font-weight: 300;
-    text-align: center;
+    text-shadow: 2px 2px #ff0000;
     z-index: 100;
 
     &-left {
       position: absolute;
-      top: 45vh;
-      right: 2rem;
+      right:0;
+      top: 50%;
+      margin-top: -9rem;
+      
     }
 
     &-right {
       position: absolute;
-      top: 45vh;
-      left: 2rem;
+      left: 0;
+      top: 50%;
+      margin-top: -9rem;
     }
   }
 }
 
 .content{
+  align-self: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 70%;
   width: 100%;
-  position: absolute;
   top: 50%;
 
   &__child{
@@ -61,14 +67,12 @@
 }
 
 .checkbox {
+  justify-self: center;
+  width: 100%;
+  align-self: center;
   display: flex;
   justify-content: center;
-  position: absolute;
-  top: 90vh;
-  left: 50%;
-  transform: translateX(-50%);
   flex-direction: row;
-  margin: 0 auto;
 
   & input {
     opacity: 0;
