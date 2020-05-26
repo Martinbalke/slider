@@ -1,7 +1,12 @@
 @import './mixins';
 @import './variables';
 
+@import './components/slider';
 
 html{
-  background-color: blue;
+  font-size: 62.5%;
+}
+
+body{
+  background-color: black;
 }
