@@ -1,11 +1,12 @@
 import React from 'react';
 import testImage from '../images/test.jpg'
 
-const Images = () => {
+/**
+ * Images is a simple image tag here only for development purposes
+ */
+function Images(){
   return (
-    <div>
-      <img src={testImage} alt=''/>
-    </div>);
+      <img src={testImage} alt=''/>);
 }
 
 export default Images;
